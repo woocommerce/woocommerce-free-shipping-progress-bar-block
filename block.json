@@ -1,0 +1,16 @@
+{
+	"apiVersion": 2,
+	"name": "automattic/woocommerce-free-shipping-progress-bar-block",
+	"version": "0.1.0",
+	"title": "Free Shipping Progress Bar",
+	"category": "widgets",
+	"icon": "carrot",
+	"description": "Show a free shipping progress bar.",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "woocommerce-free-shipping-progress-bar-block",
+	"editorScript": "file:./build/index.js",
+	"editorStyle": "file:./build/index.css",
+	"style": "file:./build/style-index.css"
+}

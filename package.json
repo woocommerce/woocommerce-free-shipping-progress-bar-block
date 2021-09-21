@@ -1,0 +1,31 @@
+{
+	"name": "@woocommerce/free-shipping-progress-bar-block",
+	"title": "WooCommerce Free Shipping Progress Bar Block",
+	"author": "Automattic",
+	"version": "0.1.0",
+	"description": "Show a free shipping progress bar.",
+	"homepage": "https://github.com/woocommerce/woocommerce-gutenberg-products-block/",
+	"keywords": [
+		"woocommerce",
+		"wordpress",
+		"free shipping progress bar"
+	],
+	"scripts": {
+		"build": "wp-scripts build",
+		"format": "wp-scripts format",
+		"lint:css": "wp-scripts lint-style",
+		"lint:js": "wp-scripts lint-js",
+		"start": "wp-scripts start",
+		"packages-update": "wp-scripts packages-update"
+	},
+	"dependencies": {
+		"@wordpress/block-editor": "^7.0.2",
+		"@wordpress/blocks": "^11.1.0",
+		"@wordpress/i18n": "^4.2.2",
+		"@wordpress/icons": "^5.0.2"
+	},
+	"devDependencies": {
+		"@wordpress/scripts": "^18.0.1",
+		"prettier": "npm:wp-prettier@^2.2.1-beta-1"
+	}
+}
