@@ -12,7 +12,7 @@
  * Requires PHP: 7.0
  * WC requires at least: 5.6
  * WC tested up to: 5.7
- * 
+ *
  * @package WooCommerce\FreeShippingProgressBarBlock
  */
 

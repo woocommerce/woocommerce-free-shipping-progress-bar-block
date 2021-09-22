@@ -12,9 +12,14 @@
 	],
 	"scripts": {
 		"build": "wp-scripts build",
-		"format": "wp-scripts format",
-		"lint:css": "wp-scripts lint-style",
-		"lint:js": "wp-scripts lint-js",
+		"lint": "npm run lint:php && npm run lint:css && npm run lint:js",
+		"lint:ci": "npm run lint:js && npm run lint:css",
+		"lint:css": "stylelint 'assets/**/*.scss'",
+		"lint:css-fix": "stylelint 'assets/**/*.scss' --fix",
+		"lint:js": "wp-scripts lint-js --ext=js,ts,tsx",
+		"lint:js:report": "npm run lint:js -- --output-file eslint_report.json --ext=js,ts,tsx --format json",
+		"lint:js-fix": "eslint assets/js --ext=js,jsx,ts,tsx --fix",
+		"lint:php": "composer run-script phpcs ./src",
 		"start": "wp-scripts start",
 		"packages-update": "wp-scripts packages-update"
 	},
@@ -25,7 +30,29 @@
 		"@wordpress/icons": "^5.0.2"
 	},
 	"devDependencies": {
+		"@wordpress/prettier-config": "^1.1.1",
 		"@wordpress/scripts": "^18.0.1",
-		"prettier": "npm:wp-prettier@^2.2.1-beta-1"
+		"@wordpress/stylelint-config": "^19.1.0",
+		"husky": "2.4.1",
+		"lint-staged": "^11.1.2",
+		"prettier": "^2.4.1"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
+		"*.scss": [
+			"npm run lint:css"
+		],
+		"*.{js,ts,tsx}": [
+			"prettier --write",
+			"npm run lint:js"
+		],
+		"*.php": [
+			"php -d display_errors=1 -l",
+			"composer run-script phpcs"
+		]
 	}
 }
