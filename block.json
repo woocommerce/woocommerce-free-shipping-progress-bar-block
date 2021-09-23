@@ -4,11 +4,21 @@
 	"version": "0.1.0",
 	"title": "Free Shipping Progress Bar",
 	"category": "widgets",
+	"icon": "carrot",
 	"description": "Show a free shipping progress bar.",
 	"supports": {
 		"html": false
 	},
-	"attributes": {},
+	"attributes": {
+		"currentTotal": {
+			"type": "number",
+			"default": "15"
+		},
+		"freeShippingFrom": {
+			"type": "number",
+			"default": "50"
+		}
+	},
 	"textdomain": "free-shipping-progress-bar",
 	"editorScript": "file:./build/index.js",
 	"editorStyle": "file:./build/index.css",
