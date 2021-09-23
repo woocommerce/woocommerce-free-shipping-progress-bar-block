@@ -25,7 +25,43 @@ defined( 'ABSPATH' ) || exit;
  *
  * @see https://developer.wordpress.org/block-editor/tutorials/block-tutorial/writing-your-first-block-type/
  */
-function woocommerce_free_shipping_progress_bar_block_block_init() {
-	register_block_type( __DIR__ );
+function create_block_interactive_block_block_init() {
+	register_block_type( __DIR__, array(
+		'render_callback' => 'render_block_with_attribures'
+	) );
 }
-add_action( 'init', 'woocommerce_free_shipping_progress_bar_block_block_init' );
+
+// Copied from @wordpress/dependency-extraction-webpack-plugin docs.
+function enqueue_frontend_script() {
+	$script_path       = 'build/frontend.js';
+	$script_asset_path = 'build/frontend.asset.php';
+	$script_asset      = require( $script_asset_path );
+	$script_url = plugins_url( $script_path, __FILE__ );
+	wp_enqueue_script( 'script', $script_url, ['wp-element'], $script_asset['version'] );
+}
+
+// Copied from WooCommerce Blocks.
+function add_attributes_to_block( $attributes = [], $content = '' ) {
+	$escaped_data_attributes = [];
+
+	foreach ( $attributes as $key => $value ) {
+		if ( is_bool( $value ) ) {
+			$value = $value ? 'true' : 'false';
+		}
+		if ( ! is_scalar( $value ) ) {
+			$value = wp_json_encode( $value );
+		}
+		$escaped_data_attributes[] = 'data-' . esc_attr( strtolower( preg_replace( '/(?<!\ )[A-Z]/', '-$0', $key ) ) ) . '="' . esc_attr( $value ) . '"';
+	}
+
+	return preg_replace( '/^<div /', '<div ' . implode( ' ', $escaped_data_attributes ) . ' ', trim( $content ) );
+}
+
+function render_block_with_attribures( $attributes = [], $content = '' ) {
+	if ( ! is_admin() ) {
+		enqueue_frontend_script();
+	}
+	return add_attributes_to_block($attributes, $content);
+};
+
+add_action( 'init', 'create_block_interactive_block_block_init' );

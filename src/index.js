@@ -17,7 +17,8 @@ import './style.scss';
 /**
  * Internal dependencies
  */
-import edit from './edit';
+import ProgressBarIcon from './progress-bar-icon';
+import Edit from './edit';
 import save from './save';
 
 /**
@@ -25,14 +26,18 @@ import save from './save';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
-registerBlockType('automattic/woocommerce-free-shipping-progress-bar-block', {
+registerBlockType( 'woocommerce/free-shipping-progress-bar', {
+	/**
+	 * @see ./progress-bar-icon.js
+	 */
+	icon: <ProgressBarIcon />,
 	/**
 	 * @see ./edit.js
 	 */
-	edit,
+	edit: Edit,
 
 	/**
 	 * @see ./save.js
 	 */
 	save,
-});
+} );

@@ -1,28 +1,17 @@
-/**
- * External dependencies
- */
-import { withRestApiHydration } from '@woocommerce/block-hocs';
-import { renderFrontend } from '@woocommerce/base-utils';
+import { render, Suspense } from '@wordpress/element';
+import Block from './block';
 
-/**
- * Internal dependencies
- */
-import Block from './block.js';
-
-const getProps = ( el ) => {
-	return {
-		attributes: {
-			displayStyle: el.dataset.displayStyle,
-			heading: el.dataset.heading,
-			headingLevel: el.dataset.headingLevel || 3,
-		},
-	};
-};
-
-renderFrontend(
-	{
-		selector: '.wc-free-shipping-progress-bar',
-		Block: withRestApiHydration( Block ),
-			getProps,
+window.addEventListener( 'DOMContentLoaded', () => {
+	const element = document.querySelector(
+		'.wp-block-woocommerce-free-shipping-progress-bar'
+	);
+	if ( element ) {
+		const attributes = { ...element.dataset };
+		render(
+			<Suspense fallback={ <div className="wp-block-placeholder" /> }>
+				<Block { ...attributes } />
+			</Suspense>,
+			element
+		);
 	}
-);
+} );
