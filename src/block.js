@@ -3,7 +3,10 @@ export default function Block( { currentTotal, freeShippingFrom } ) {
 	const divWidth = ( progress > 100 ? 100 : progress ) + '%';
 	const divStyle = { width: divWidth };
 	const remaining = Number( freeShippingFrom - currentTotal ).toFixed( 2 );
-	const message = `Spend $${ remaining } more to get free US shipping.`;
+	const message =
+		remaining > 0
+			? `Spend only $${ remaining } more to get free US shipping.`
+			: `You've qualified for free shipping. Great job!`;
 
 	return (
 		<div className="wc-free-shipping-progress-bar">
