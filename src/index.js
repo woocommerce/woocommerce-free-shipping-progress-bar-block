@@ -26,7 +26,7 @@ import save from './save';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
-registerBlockType( 'woocommerce/free-shipping-progress-bar', {
+registerBlockType( 'nielslange/free-shipping-progress-bar', {
 	/**
 	 * @see ./progress-bar-icon.js
 	 */

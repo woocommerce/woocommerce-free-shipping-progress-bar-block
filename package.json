@@ -1,6 +1,6 @@
 {
-	"name": "@woocommerce/free-shipping-progress-bar-block",
-	"title": "WooCommerce Free Shipping Progress Bar Block",
+	"name": "@nielslange/free-shipping-progress-bar-block",
+	"title": "Free Shipping Progress Bar Block",
 	"author": "Automattic",
 	"version": "0.1.0",
 	"description": "Show a free shipping progress bar.",

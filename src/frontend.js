@@ -3,7 +3,7 @@ import Block from './block';
 
 window.addEventListener( 'DOMContentLoaded', () => {
 	const element = document.querySelector(
-		'.wp-block-woocommerce-free-shipping-progress-bar'
+		'.wp-block-nielslange-free-shipping-progress-bar'
 	);
 	if ( element ) {
 		const attributes = { ...element.dataset };

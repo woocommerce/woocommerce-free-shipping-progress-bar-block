@@ -1,6 +1,6 @@
 {
 	"apiVersion": 2,
-	"name": "woocommerce/free-shipping-progress-bar",
+	"name": "nielslange/free-shipping-progress-bar",
 	"version": "0.1.0",
 	"title": "Free Shipping Progress Bar",
 	"category": "widgets",
