@@ -22,10 +22,10 @@
 	"dependencies": {
 		"@wordpress/block-editor": "^7.0.2",
 		"@wordpress/blocks": "^11.1.0",
-		"@wordpress/i18n": "^4.2.2",
 		"eslint": "^7.32.0"
 	},
 	"devDependencies": {
+		"@wordpress/i18n": "^4.2.2",
 		"@wordpress/prettier-config": "^1.1.1",
 		"@wordpress/scripts": "^18.0.1"
 	}
