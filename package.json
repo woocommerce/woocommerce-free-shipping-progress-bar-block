@@ -25,8 +25,8 @@
 		"eslint": "^7.32.0"
 	},
 	"devDependencies": {
-		"@wordpress/i18n": "^4.2.2",
-		"@wordpress/prettier-config": "^1.1.1",
-		"@wordpress/scripts": "^18.0.1"
+		"@wordpress/i18n": "4.2.2",
+		"@wordpress/prettier-config": "1.1.1",
+		"@wordpress/scripts": "18.0.1"
 	}
 }
