@@ -5,7 +5,11 @@
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
+import {
+	useBlockProps,
+	InspectorControls,
+	PanelColorSettings,
+} from '@wordpress/block-editor';
 import { PanelBody, TextControl } from '@wordpress/components';
 
 /**
@@ -26,7 +30,7 @@ import Block from './block';
  * @return {WPElement} Element to render.
  */
 export default function Edit( { attributes, setAttributes } ) {
-	const { freeShippingFrom } = attributes;
+	const { freeShippingFrom, messageColor, progressBarColor } = attributes;
 
 	return (
 		<div { ...useBlockProps() }>
@@ -42,6 +46,34 @@ export default function Edit( { attributes, setAttributes } ) {
 							} )
 						}
 					/>
+					<PanelColorSettings
+						title={ __(
+							'Color Settings',
+							'free-shipping-progress-bar'
+						) }
+						colorSettings={ [
+							{
+								label: __(
+									'Message Color',
+									'free-shipping-progress-bar'
+								),
+								value: messageColor,
+								onChange: ( messageColor ) =>
+									setAttributes( { messageColor } ),
+							},
+							{
+								label: __(
+									'Progress Bar Color',
+									'free-shipping-progress-bar'
+								),
+								value: progressBarColor,
+								onChange: ( progressBarColor ) =>
+									setAttributes( {
+										progressBarColor,
+									} ),
+							},
+						] }
+					></PanelColorSettings>
 				</PanelBody>
 			</InspectorControls>
 			<Block { ...attributes } />

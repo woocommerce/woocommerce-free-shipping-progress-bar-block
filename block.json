@@ -17,6 +17,12 @@
 		"freeShippingFrom": {
 			"type": "number",
 			"default": "50"
+		},
+		"messageColor": {
+			"type": "string"
+		},
+		"progressBarColor": {
+			"type": "string"
 		}
 	},
 	"textdomain": "free-shipping-progress-bar",
