@@ -1,4 +1,4 @@
-# Woocommerce Free Shipping Progress Bar Block
+# WooCommerce Free Shipping Progress Bar Block
 
 > This plugin is currently under development and not suitable for productive environments!
 
