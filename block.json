@@ -21,7 +21,13 @@
 		"messageColor": {
 			"type": "string"
 		},
-		"progressBarColor": {
+		"customMessageColor": {
+			"type": "string"
+		},
+		"progressColor": {
+			"type": "string"
+		},
+		"customProgressColor": {
 			"type": "string"
 		}
 	},

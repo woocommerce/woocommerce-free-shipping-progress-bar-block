@@ -1,23 +1,42 @@
 /**
  * External dependencies
  */
+import { getColorClassName } from '@wordpress/block-editor';
 import { __, sprintf } from '@wordpress/i18n';
+import classnames from 'classnames';
 
 export default function Block( {
+	color,
+	messageColor,
+	progressColor,
 	currentTotal,
 	freeShippingFrom,
-	messageColor,
-	progressBarColor,
 } ) {
+	const messageColorClass = getColorClassName( 'color', messageColor );
+	const messageClasses = classnames( {
+		'has-text-color': color || messageColor,
+		[ messageColorClass ]: messageColorClass,
+	} );
+	const progressBorderClass = getColorClassName(
+		'border-color',
+		progressColor
+	);
+	const progressBorderClasses = classnames( {
+		'has-border': color || progressColor,
+		[ progressBorderClass ]: progressBorderClass,
+	} );
+	const progressBackgroundClass = getColorClassName(
+		'background-color',
+		progressColor
+	);
+	const progressBackgroundClasses = classnames( {
+		'has-background': color || progressColor,
+		[ progressBackgroundClass ]: progressBackgroundClass,
+	} );
+
 	const progress = ( currentTotal / freeShippingFrom ) * 100;
-	const progressWidth = ( progress > 100 ? 100 : progress ) + '%';
-	const progressStyle = {
-		width: progressWidth,
-		background: progressBarColor,
-	};
-	const progressBarStyle = {
-		borderColor: progressBarColor,
-	};
+	const progressBarWidth = ( progress > 100 ? 100 : progress ) + '%';
+	const progressBarStyle = { width: progressBarWidth };
 	const remaining = Number( freeShippingFrom - currentTotal ).toFixed( 2 );
 	const message =
 		remaining > 0
@@ -32,15 +51,25 @@ export default function Block( {
 					'You have qualified for free shipping. Great job!',
 					'free-shipping-progress-bar'
 			  );
-	const messageStyle = { color: messageColor };
 
 	return (
 		<div className="wc-free-shipping-progress-bar">
-			<div id="message" style={ messageStyle }>
+			<div className={ classnames( 'message', messageClasses ) }>
 				{ message }
 			</div>
-			<div id="progressBar" style={ progressBarStyle }>
-				<div id="progress" style={ progressStyle }></div>
+			<div
+				className={ classnames(
+					'progress-container',
+					progressBorderClasses
+				) }
+			>
+				<div
+					className={ classnames(
+						'progress-bar',
+						progressBackgroundClasses
+					) }
+					style={ progressBarStyle }
+				></div>
 			</div>
 		</div>
 	);

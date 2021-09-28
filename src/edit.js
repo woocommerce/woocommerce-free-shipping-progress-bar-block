@@ -8,9 +8,11 @@
 import {
 	useBlockProps,
 	InspectorControls,
+	withColors,
 	PanelColorSettings,
 } from '@wordpress/block-editor';
 import { PanelBody, TextControl } from '@wordpress/components';
+import { __ } from '@wordpress/i18n';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -29,16 +31,29 @@ import Block from './block';
  * @see https://developer.wordpress.org/block-editor/developers/block-api/block-edit-save/#edit
  * @return {WPElement} Element to render.
  */
-export default function Edit( { attributes, setAttributes } ) {
-	const { freeShippingFrom, messageColor, progressBarColor } = attributes;
+export default function Edit( {
+	attributes,
+	setAttributes,
+	messageColor,
+	setMessageColor,
+	progressColor,
+	setProgressColor,
+} ) {
+	const { freeShippingFrom } = attributes;
 
 	return (
 		<div { ...useBlockProps() }>
 			<InspectorControls>
 				<PanelBody title="Settings" initialOpen={ true }>
 					<TextControl
-						label="Free shipping from"
-						help="Provide the value in your store currency."
+						label={ __(
+							'Free shipping from',
+							'free-shipping-progress-bar'
+						) }
+						help={ __(
+							'Provide the value in your store currency.',
+							'free-shipping-progress-bar'
+						) }
 						value={ freeShippingFrom }
 						onChange={ ( value ) =>
 							setAttributes( {
@@ -57,20 +72,16 @@ export default function Edit( { attributes, setAttributes } ) {
 									'Message Color',
 									'free-shipping-progress-bar'
 								),
-								value: messageColor,
-								onChange: ( messageColor ) =>
-									setAttributes( { messageColor } ),
+								value: messageColor.color,
+								onChange: setMessageColor,
 							},
 							{
 								label: __(
 									'Progress Bar Color',
 									'free-shipping-progress-bar'
 								),
-								value: progressBarColor,
-								onChange: ( progressBarColor ) =>
-									setAttributes( {
-										progressBarColor,
-									} ),
+								value: progressColor.color,
+								onChange: setProgressColor,
 							},
 						] }
 					></PanelColorSettings>

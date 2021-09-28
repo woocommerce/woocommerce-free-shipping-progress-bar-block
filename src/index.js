@@ -4,6 +4,7 @@
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
 import { registerBlockType } from '@wordpress/blocks';
+import { withColors } from '@wordpress/block-editor';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -34,7 +35,10 @@ registerBlockType( 'nielslange/free-shipping-progress-bar', {
 	/**
 	 * @see ./edit.js
 	 */
-	edit: Edit,
+	// edit: Edit,
+	edit: withColors( { messageColor: 'color', progressColor: 'color' } )(
+		Edit
+	),
 
 	/**
 	 * @see ./save.js
