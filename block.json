@@ -21,13 +21,7 @@
 		"messageColor": {
 			"type": "string"
 		},
-		"customMessageColor": {
-			"type": "string"
-		},
 		"progressColor": {
-			"type": "string"
-		},
-		"customProgressColor": {
 			"type": "string"
 		}
 	},
