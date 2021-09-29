@@ -17,12 +17,9 @@ export default function Block( {
 		'has-text-color': color || messageColor,
 		[ messageColorClass ]: messageColorClass,
 	} );
-	const progressBorderClass = getColorClassName(
-		'border-color',
-		progressColor
-	);
+	const progressBorderClass = getColorClassName( 'color', progressColor );
 	const progressBorderClasses = classnames( {
-		'has-border': color || progressColor,
+		'has-text-color': color || progressColor,
 		[ progressBorderClass ]: progressBorderClass,
 	} );
 	const progressBackgroundClass = getColorClassName(
