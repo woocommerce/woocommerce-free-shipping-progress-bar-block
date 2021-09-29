@@ -36,9 +36,7 @@ registerBlockType( 'nielslange/free-shipping-progress-bar', {
 	 * @see ./edit.js
 	 */
 	// edit: Edit,
-	edit: withColors( { messageColor: 'color', progressColor: 'color' } )(
-		Edit
-	),
+	edit: Edit,
 
 	/**
 	 * @see ./save.js

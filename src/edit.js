@@ -31,7 +31,7 @@ import Block from './block';
  * @see https://developer.wordpress.org/block-editor/developers/block-api/block-edit-save/#edit
  * @return {WPElement} Element to render.
  */
-export default function Edit( {
+function ProgressEdit( {
 	attributes,
 	setAttributes,
 	messageColor,
@@ -91,3 +91,10 @@ export default function Edit( {
 		</div>
 	);
 }
+
+const Edit = withColors( 'color', {
+	messageColor: 'color',
+	progressColor: 'color',
+} )( ProgressEdit );
+
+export default Edit;
