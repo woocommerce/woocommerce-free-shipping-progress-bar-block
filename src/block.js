@@ -1,7 +1,7 @@
 /**
  * External dependencies
  */
-import { getColorClassName } from '@wordpress/block-editor';
+import { getColorClassName } from './util';
 import { __, sprintf } from '@wordpress/i18n';
 import classnames from 'classnames';
 
