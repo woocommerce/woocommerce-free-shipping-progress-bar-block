@@ -10,6 +10,18 @@
 		"html": false
 	},
 	"attributes": {
+		"insufficient_before": {
+			"type": "string",
+			"default": "Spend only"
+		},
+		"insufficient_after": {
+			"type": "string",
+			"default": "more to get free US shipping!"
+		},
+		"sufficient": {
+			"type": "string",
+			"default": "You have qualified for free shipping. Great job!"
+		},
 		"currentTotal": {
 			"type": "number",
 			"default": "15"

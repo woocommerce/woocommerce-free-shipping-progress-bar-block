@@ -1,26 +1,18 @@
-/**
- * External dependencies
- */
-import { __, sprintf } from '@wordpress/i18n';
-
-export default function Block( { currentTotal, freeShippingFrom } ) {
+export default function Block( {
+	insufficient_before,
+	insufficient_after,
+	sufficient,
+	currentTotal,
+	freeShippingFrom,
+} ) {
 	const progress = ( currentTotal / freeShippingFrom ) * 100;
 	const divWidth = ( progress > 100 ? 100 : progress ) + '%';
 	const divStyle = { width: divWidth };
 	const remaining = Number( freeShippingFrom - currentTotal ).toFixed( 2 );
 	const message =
 		remaining > 0
-			? sprintf(
-					__(
-						'Spend only $%s more to get free US shipping!',
-						'free-shipping-progress-bar'
-					),
-					remaining
-			  )
-			: __(
-					'You have qualified for free shipping. Great job!',
-					'free-shipping-progress-bar'
-			  );
+			? `${ insufficient_before } $${ remaining } ${ insufficient_after }`
+			: `${ sufficient }`;
 
 	return (
 		<div className="wc-free-shipping-progress-bar">

@@ -48,16 +48,16 @@ export default function ProgressBarIcon() {
 							xlinkHref="#a3HIePHoOc"
 							opacity="1"
 							fill="#96588a"
-							fill-opacity="0"
+							fillOpacity="0"
 						></use>
 						<g mask="url(#maskb1IBID9s4E)">
 							<use
 								xlinkHref="#a3HIePHoOc"
 								opacity="1"
-								fill-opacity="0"
+								fillOpacity="0"
 								stroke="#96588a"
-								stroke-width="2"
-								stroke-opacity="1"
+								strokeWidth="2"
+								strokeOpacity="1"
 							></use>
 						</g>
 					</g>
@@ -66,16 +66,16 @@ export default function ProgressBarIcon() {
 							xlinkHref="#e2OKmT2GNc"
 							opacity="1"
 							fill="#96588b"
-							fill-opacity="1"
+							fillOpacity="1"
 						></use>
 						<g>
 							<use
 								xlinkHref="#e2OKmT2GNc"
 								opacity="1"
-								fill-opacity="0"
+								fillOpacity="0"
 								stroke="#84fa15"
-								stroke-width="0"
-								stroke-opacity="1"
+								strokeWidth="0"
+								strokeOpacity="1"
 							></use>
 						</g>
 					</g>
