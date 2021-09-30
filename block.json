@@ -10,15 +10,11 @@
 		"html": false
 	},
 	"attributes": {
-		"insufficient_before": {
+		"insufficientTotals": {
 			"type": "string",
-			"default": "Spend only"
+			"default": "Spend only %s more to get free US shipping!"
 		},
-		"insufficient_after": {
-			"type": "string",
-			"default": "more to get free US shipping!"
-		},
-		"sufficient": {
+		"sufficientTotals": {
 			"type": "string",
 			"default": "You have qualified for free shipping. Great job!"
 		},

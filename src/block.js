@@ -1,7 +1,11 @@
+/**
+ * External dependencies
+ */
+import { sprintf } from '@wordpress/i18n';
+
 export default function Block( {
-	insufficient_before,
-	insufficient_after,
-	sufficient,
+	insufficientTotals,
+	sufficientTotals,
 	currentTotal,
 	freeShippingFrom,
 } ) {
@@ -11,8 +15,8 @@ export default function Block( {
 	const remaining = Number( freeShippingFrom - currentTotal ).toFixed( 2 );
 	const message =
 		remaining > 0
-			? `${ insufficient_before } $${ remaining } ${ insufficient_after }`
-			: `${ sufficient }`;
+			? sprintf( `${ insufficientTotals }`, `$${ remaining }` )
+			: `${ sufficientTotals }`;
 
 	return (
 		<div className="wc-free-shipping-progress-bar">

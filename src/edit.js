@@ -28,9 +28,8 @@ import Block from './block';
  */
 export default function Edit( { attributes, setAttributes } ) {
 	const {
-		insufficient_before,
-		insufficient_after,
-		sufficient,
+		insufficientTotals,
+		sufficientTotals,
 		freeShippingFrom,
 	} = attributes;
 
@@ -43,38 +42,20 @@ export default function Edit( { attributes, setAttributes } ) {
 				>
 					<TextareaControl
 						label={ __(
-							'Insufficient totals message (before)',
+							'Insufficient totals message',
 							'free-shipping-progress-bar'
 						) }
 						help={ __(
-							'Provide the message for insufficient totals before the remaining value.',
+							'Provide the message for insufficient totals. %s is a placeholder for the calculated remaining value and should not be removed.',
 							'free-shipping-progress-bar'
 						) }
 						placeholder={ __(
-							'Purchase only',
+							'Purchase only %s more to get free US shipping!',
 							'free-shipping-progress-bar'
 						) }
-						value={ insufficient_before }
+						value={ insufficientTotals }
 						onChange={ ( value ) =>
-							setAttributes( { insufficient_before: value } )
-						}
-					/>
-					<TextareaControl
-						label={ __(
-							'Insufficient totals message (after)',
-							'free-shipping-progress-bar'
-						) }
-						help={ __(
-							'Provide the message for insufficient totals after the remaining value.',
-							'free-shipping-progress-bar'
-						) }
-						placeholder={ __(
-							'more to get free US shipping!',
-							'free-shipping-progress-bar'
-						) }
-						value={ insufficient_after }
-						onChange={ ( value ) =>
-							setAttributes( { insufficient_after: value } )
+							setAttributes( { insufficientTotals: value } )
 						}
 					/>
 					<TextareaControl
@@ -90,9 +71,9 @@ export default function Edit( { attributes, setAttributes } ) {
 							'You have qualified for free shipping. Great job!',
 							'free-shipping-progress-bar'
 						) }
-						value={ sufficient }
+						value={ sufficientTotals }
 						onChange={ ( value ) =>
-							setAttributes( { sufficient: value } )
+							setAttributes( { sufficientTotals: value } )
 						}
 					/>
 					<TextControl
