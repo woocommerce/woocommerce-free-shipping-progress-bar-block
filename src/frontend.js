@@ -1,4 +1,11 @@
+/**
+ * External dependencies
+ */
 import { render, Suspense } from '@wordpress/element';
+
+/**
+ * Internal dependencies
+ */
 import Block from './block';
 
 window.addEventListener( 'DOMContentLoaded', () => {

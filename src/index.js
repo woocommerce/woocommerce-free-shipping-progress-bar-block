@@ -21,11 +21,6 @@ import ProgressBarIcon from './progress-bar-icon';
 import Edit from './edit';
 import save from './save';
 
-/**
- * Every block starts by registering a new block type definition.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
- */
 registerBlockType( 'nielslange/free-shipping-progress-bar', {
 	/**
 	 * @see ./progress-bar-icon.js
