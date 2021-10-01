@@ -5,6 +5,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
+import { __ } from '@wordpress/i18n';
 import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
 import { PanelBody, TextControl } from '@wordpress/components';
 
@@ -31,10 +32,19 @@ export default function Edit( { attributes, setAttributes } ) {
 	return (
 		<div { ...useBlockProps() }>
 			<InspectorControls>
-				<PanelBody title="Settings" initialOpen={ true }>
+				<PanelBody
+					title={ __( 'Settings', 'free-shipping-progress-bar' ) }
+					initialOpen={ true }
+				>
 					<TextControl
-						label="Free shipping from"
-						help="Provide the value in your store currency."
+						label={ __(
+							'Free shipping from',
+							'free-shipping-progress-bar'
+						) }
+						help={ __(
+							'Provide the value in your store currency.',
+							'free-shipping-progress-bar'
+						) }
 						value={ freeShippingFrom }
 						onChange={ ( value ) =>
 							setAttributes( {
