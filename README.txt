@@ -1,4 +1,4 @@
-=== Woocommerce Free Shipping Progress Bar Block ===
+=== WooCommerce Free Shipping Progress Bar Block ===
 
 Contributors: automattic, woocommerce, nielslange
 Tags: free shipping progress bar, woocommerce, gutenberg
