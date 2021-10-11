@@ -17,17 +17,25 @@
 		"lint:css": "wp-scripts lint-style",
 		"lint:js": "wp-scripts lint-js",
 		"start": "wp-scripts start",
-		"packages-update": "wp-scripts packages-update"
+		"test:e2e": "wp-scripts test-e2e",
+		"test:e2e-dev": "wp-scripts test-e2e --puppeteer-interactive",
+		"packages-update": "wp-scripts packages-update",
+		"wp-env": "wp-env"
 	},
 	"dependencies": {
 		"@wordpress/block-editor": "^7.0.2",
 		"@wordpress/blocks": "^11.1.0",
-		"eslint": "^7.32.0",
-		"prettier": "npm:wp-prettier@2.0.5"
+		"fs-extra": "^10.0.0"
 	},
 	"devDependencies": {
+		"@wordpress/e2e-test-utils": "^5.4.3",
+		"@wordpress/env": "^4.1.1",
 		"@wordpress/i18n": "4.2.2",
 		"@wordpress/prettier-config": "1.1.1",
-		"@wordpress/scripts": "18.0.1"
+		"@wordpress/scripts": "18.0.1",
+		"eslint": "^7.32.0",
+		"lodash.kebabcase": "^4.1.1",
+		"path": "^0.12.7",
+		"prettier": "npm:wp-prettier@2.0.5"
 	}
 }
