@@ -26,8 +26,8 @@
 		"prettier": "npm:wp-prettier@2.0.5"
 	},
 	"devDependencies": {
-		"@wordpress/i18n": "4.2.2",
+		"@wordpress/i18n": "4.2.3",
 		"@wordpress/prettier-config": "1.1.1",
-		"@wordpress/scripts": "18.0.1"
+		"@wordpress/scripts": "18.1.0"
 	}
 }
