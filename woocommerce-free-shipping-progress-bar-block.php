@@ -65,3 +65,18 @@ function render_block_with_attribures( $attributes = [], $content = '' ) {
 };
 
 add_action( 'init', 'create_block_interactive_block_block_init' );
+
+/**
+ * Add experimentalfilter to add data attributes to the free shipping progress bar block.
+ * 
+ * @see https://github.com/woocommerce/woocommerce-gutenberg-products-block/blob/trunk/docs/blocks/feature-flags-and-experimental-interfaces.md
+ */
+add_filter(
+	'__experimental_woocommerce_blocks_add_data_attributes_to_block',
+	function ( $allowed_blocks ) {
+		$allowed_blocks[] = 'nielslange/free-shipping-progress-bar';
+		return $allowed_blocks;
+	},
+	10,
+	1
+);
