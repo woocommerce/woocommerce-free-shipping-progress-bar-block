@@ -1,11 +1,11 @@
 /**
  * External dependencies
  */
-import { Path, SVG } from '@wordpress/components';
+import { SVG } from '@wordpress/components';
 
 export default function ProgressBarIcon() {
 	return (
-		<svg
+		<SVG
 			version="1.1"
 			xmlns="http://www.w3.org/2000/svg"
 			xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -47,7 +47,7 @@ export default function ProgressBarIcon() {
 						<use
 							xlinkHref="#a3HIePHoOc"
 							opacity="1"
-							fill="#96588a"
+							fill="#7F54B3"
 							fillOpacity="0"
 						></use>
 						<g mask="url(#maskb1IBID9s4E)">
@@ -55,7 +55,7 @@ export default function ProgressBarIcon() {
 								xlinkHref="#a3HIePHoOc"
 								opacity="1"
 								fillOpacity="0"
-								stroke="#96588a"
+								stroke="#7F54B3"
 								strokeWidth="2"
 								strokeOpacity="1"
 							></use>
@@ -65,7 +65,7 @@ export default function ProgressBarIcon() {
 						<use
 							xlinkHref="#e2OKmT2GNc"
 							opacity="1"
-							fill="#96588b"
+							fill="#7F54B3"
 							fillOpacity="1"
 						></use>
 						<g>
@@ -73,7 +73,7 @@ export default function ProgressBarIcon() {
 								xlinkHref="#e2OKmT2GNc"
 								opacity="1"
 								fillOpacity="0"
-								stroke="#84fa15"
+								stroke="#7F54B3"
 								strokeWidth="0"
 								strokeOpacity="1"
 							></use>
@@ -81,6 +81,6 @@ export default function ProgressBarIcon() {
 					</g>
 				</g>
 			</g>
-		</svg>
+		</SVG>
 	);
 }
