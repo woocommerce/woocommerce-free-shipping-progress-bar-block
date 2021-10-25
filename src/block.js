@@ -3,15 +3,8 @@
  */
 import { __, sprintf } from '@wordpress/i18n';
 
-export default function Block( { freeShippingFrom, cart } ) {
-	let currentTotal;
-
-	if ( undefined === cart ) {
-		currentTotal = 45;
-	} else {
-		currentTotal = cart.cartTotals.total_price / 100;
-	}
-
+export default function Block( { freeShippingFrom } ) {
+	const currentTotal = 30;
 	const progress = ( currentTotal / freeShippingFrom ) * 100;
 	const divWidth = ( progress > 100 ? 100 : progress ) + '%';
 	const divStyle = { width: divWidth };
