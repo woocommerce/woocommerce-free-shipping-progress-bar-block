@@ -3,8 +3,7 @@
  */
 import { __, sprintf } from '@wordpress/i18n';
 
-export default function Block( { freeShippingFrom } ) {
-	const currentTotal = 30;
+export default function Block( { currentTotal, freeShippingFrom } ) {
 	const progress = ( currentTotal / freeShippingFrom ) * 100;
 	const divWidth = ( progress > 100 ? 100 : progress ) + '%';
 	const divStyle = { width: divWidth };
