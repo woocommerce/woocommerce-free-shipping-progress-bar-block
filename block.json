@@ -1,11 +1,11 @@
 {
 	"apiVersion": 2,
 	"name": "nielslange/free-shipping-progress-bar",
-	"version": "0.1.0",
 	"title": "Free Shipping Progress Bar",
-	"category": "widgets",
-	"icon": "carrot",
 	"description": "Show a free shipping progress bar.",
+	"version": "0.1.0",
+	"category": "woocommerce",
+	"parent": [ "woocommerce/cart-totals-block" ],
 	"supports": {
 		"html": false
 	},

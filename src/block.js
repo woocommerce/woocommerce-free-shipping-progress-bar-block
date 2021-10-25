@@ -12,7 +12,7 @@ export default function Block( { currentTotal, freeShippingFrom } ) {
 		remaining > 0
 			? sprintf(
 					__(
-						'Spend only $%s more to get free US shipping!',
+						'Spend only $%s more to get free shipping!',
 						'free-shipping-progress-bar'
 					),
 					remaining
