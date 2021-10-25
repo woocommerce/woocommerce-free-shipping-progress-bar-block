@@ -26,7 +26,7 @@
 		"prettier": "npm:wp-prettier@2.0.5"
 	},
 	"devDependencies": {
-		"@wordpress/dependency-extraction-webpack-plugin": "^3.2.1",
+		"@wordpress/dependency-extraction-webpack-plugin": "3.2.1",
 		"@wordpress/i18n": "4.2.3",
 		"@wordpress/prettier-config": "1.1.1",
 		"@wordpress/scripts": "18.1.0"
