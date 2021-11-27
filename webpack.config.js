@@ -3,10 +3,12 @@ const WooCommerceDependencyExtractionWebpackPlugin = require( '@wordpress/depend
 
 const wcDepMap = {
 	'@woocommerce/blocks-checkout': [ 'wc', 'blocksCheckout' ],
+	'@woocommerce/price-format': [ 'wc', 'priceFormat' ],
 };
 
 const wcHandleMap = {
 	'@woocommerce/blocks-checkout': 'wc-blocks-checkout',
+	'@woocommerce/price-format': 'wc-price-format',
 };
 
 const requestToExternal = ( request ) => {
