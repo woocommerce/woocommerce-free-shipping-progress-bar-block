@@ -17,7 +17,7 @@ import './style.scss';
 /**
  * Internal dependencies
  */
-import ProgressBarIcon from './progress-bar-icon';
+import { Icon, progressBarHalf } from './icons';
 import Edit from './edit';
 import save from './save';
 
@@ -25,7 +25,8 @@ registerBlockType( 'nielslange/free-shipping-progress-bar', {
 	/**
 	 * @see ./progress-bar-icon.js
 	 */
-	icon: <ProgressBarIcon />,
+	icon: <Icon srcElement={ progressBarHalf } />,
+
 	/**
 	 * @see ./edit.js
 	 */
