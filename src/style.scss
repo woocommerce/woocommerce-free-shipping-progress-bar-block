@@ -1,22 +1,19 @@
-.wc-free-shipping-progress-bar {
-	#progressBar {
-		align-items: center;
-		background: transparent;
-		border: 1px solid #ddd;
-		border-radius: 4px;
-		display: flex;
-		height: 2em;
-		justify-content: center;
-		margin: 0.5em 0 2em;
-		padding: 0.1em;
-		position: relative;
-
-		#progress {
-			background: #4c566a;
-			border-radius: 4px;
-			height: 100%;
-			left: 0;
-			position: absolute;
-		}
-	}
+.wc-free-shipping-progress-bar__outer {
+	align-items: center;
+	background: transparent;
+	border: 2px solid #ddd;
+	border-radius: 4px;
+	display: flex;
+	height: 2em;
+	justify-content: center;
+	margin: 0.5em 0 2em;
+	padding: 0.1em;
+	position: relative;
+}
+.wc-free-shipping-progress-bar__inner {
+	background: #4c566a;
+	border-radius: 3px;
+	height: 100%;
+	left: 0;
+	position: absolute;
 }

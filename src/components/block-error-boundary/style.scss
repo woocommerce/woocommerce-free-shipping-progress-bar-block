@@ -1,0 +1,28 @@
+.wc-free-shipping-progress-bar-error {
+	align-items: center;
+	color: currentColor;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 1em;
+	padding: 1em;
+	text-align: center;
+}
+.wc-free-shipping-progress-bar-error__header {
+	color: currentColor;
+	margin: 0;
+}
+.wc-free-shipping-progress-bar-error__text {
+	color: currentColor;
+	margin: 1em 0 0;
+	max-width: 60ch;
+}
+.wc-free-shipping-progress-bar-error__message {
+	color: currentColor;
+	font-style: italic;
+	margin: 1em 0 0;
+	max-width: 60ch;
+}
+.wc-free-shipping-progress-bar-error__button {
+	margin: 0;
+}

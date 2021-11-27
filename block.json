@@ -11,12 +11,20 @@
 	},
 	"attributes": {
 		"currentTotal": {
-			"type": "number",
+			"type": "string",
 			"default": "15"
 		},
 		"freeShippingFrom": {
-			"type": "number",
+			"type": "string",
 			"default": "50"
+		},
+		"labelInsufficientTotals": {
+			"type": "string",
+			"default": "Spend only {amount} more to get free shipping!"
+		},
+		"labelSufficientTotals": {
+			"type": "string",
+			"default": "You have qualified for free shipping. Great job!"
 		}
 	},
 	"textdomain": "free-shipping-progress-bar",
