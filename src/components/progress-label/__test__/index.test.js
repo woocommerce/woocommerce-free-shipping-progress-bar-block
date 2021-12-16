@@ -1,7 +1,7 @@
 /**
  * External dependencies
  */
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 /**
@@ -25,9 +25,7 @@ describe( 'The ProgressLabel component', () => {
 				currentTotal="1"
 			/>
 		);
-		expect( document.querySelector( label ) ).toHaveTextContent(
-			'Spend only 1.00 more to get free shipping!'
-		);
+		screen.getByText( 'Spend only 1.00 more to get free shipping!' );
 	} );
 
 	it( 'shows the message for sufficient totals correctly', () => {
@@ -38,8 +36,6 @@ describe( 'The ProgressLabel component', () => {
 				currentTotal="2"
 			/>
 		);
-		expect( document.querySelector( label ) ).toHaveTextContent(
-			'You have qualified for free shipping. Great job!'
-		);
+		screen.getByText( 'You have qualified for free shipping. Great job!' );
 	} );
 } );
