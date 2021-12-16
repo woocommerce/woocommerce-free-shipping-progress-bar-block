@@ -11,12 +11,7 @@ const ProgressLabel = ( {
 			: labelSufficientTotals;
 
 	return (
-		<div
-			data-testid="progress-bar-label"
-			className="wc-free-shipping-progress-bar__label"
-		>
-			{ message }
-		</div>
+		<div className="wc-free-shipping-progress-bar__label">{ message }</div>
 	);
 };
 
