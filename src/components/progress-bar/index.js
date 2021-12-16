@@ -4,8 +4,12 @@ const ProgressBar = ( { currentTotal, freeShippingFrom } ) => {
 	const divStyle = { width: divWidth };
 
 	return (
-		<div className="wc-free-shipping-progress-bar__outer">
+		<div
+			data-testid="progress-bar-outer"
+			className="wc-free-shipping-progress-bar__outer"
+		>
 			<div
+				data-testid="progress-bar-inner"
 				className="wc-free-shipping-progress-bar__inner"
 				style={ divStyle }
 			></div>
