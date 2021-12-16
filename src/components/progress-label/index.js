@@ -1,17 +1,15 @@
 /**
  * External dependencies
  */
-import { formatPrice } from '@woocommerce/price-format';
+import {
+	formatPrice,
+	getCurrencyFromPriceResponse,
+} from '@woocommerce/price-format';
 
 /**
  * Internal dependencies
  */
-import {
-	getCurrentTotal,
-	getMinorUnit,
-	getRemaining,
-	getCurrencyFormat,
-} from '../../util';
+import { getCurrentTotal, getMinorUnit, getRemaining } from '../../util';
 
 const ProgressLabel = ( {
 	freeShippingFrom,
@@ -22,7 +20,7 @@ const ProgressLabel = ( {
 	const currentTotal = getCurrentTotal( cart );
 	const minorUnit = getMinorUnit( cart );
 	const remaining = getRemaining( freeShippingFrom, currentTotal, minorUnit );
-	const currency = getCurrencyFormat( cart );
+	const currency = getCurrencyFromPriceResponse( cart );
 	const price = formatPrice( remaining, currency );
 	const message =
 		remaining > 0

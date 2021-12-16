@@ -42,27 +42,3 @@ export function getRemaining( freeShippingFrom, currentTotal, minorUnit ) {
 
 	return result;
 }
-
-/**
- * Get the currency format.
- *
- * @param {Object} cart The cart object.
- * @returns {Object} The currency format object.
- */
-export function getCurrencyFormat( cart ) {
-	let format = {};
-
-	if ( undefined === cart ) {
-		return '';
-	}
-
-	format.code = cart.cartTotals.currency_code;
-	format.decimalSeparator = cart.cartTotals.currency_decimal_separator;
-	format.minorUnit = cart.cartTotals.currency_minor_unit;
-	format.prefix = cart.cartTotals.currency_prefix;
-	format.suffix = cart.cartTotals.currency_suffix;
-	format.symbol = cart.cartTotals.currency_symbol;
-	format.thousandSeparator = cart.cartTotals.currency_thousand_separator;
-
-	return format;
-}
