@@ -11,7 +11,7 @@ export function getCurrentTotal( cart ) {
 
 		return total_price / Math.pow( 10, minor_unit );
 	}
-	return '';
+	return 15;
 }
 
 /**
