@@ -5,11 +5,7 @@
  * @returns {Number} The totals of the cart object, if available, else the totals of the cart progress bar preview.
  */
 export function getCurrentTotal( cart ) {
-	if (
-		undefined !== cart &&
-		undefined !== cart.cartTotals.total_price &&
-		undefined !== cart.cartTotals.currency_minor_unit
-	) {
+	if ( undefined !== cart ) {
 		const total_price = cart.cartTotals.total_price;
 		const minor_unit = cart.cartTotals.currency_minor_unit;
 
@@ -25,10 +21,7 @@ export function getCurrentTotal( cart ) {
  * @returns {Number} The totals of the cart object, if available, else the totals of the cart progress bar preview.
  */
 export function getMinorUnit( cart ) {
-	if (
-		undefined !== cart &&
-		undefined !== cart.cartTotals.currency_minor_unit
-	) {
+	if ( undefined !== cart ) {
 		return cart.cartTotals.currency_minor_unit;
 	}
 	return '';
@@ -63,33 +56,13 @@ export function getCurrencyFormat( cart ) {
 		return '';
 	}
 
-	if ( undefined !== cart.cartTotals.currency_code ) {
-		format.code = cart.cartTotals.currency_code;
-	}
-
-	if ( undefined !== cart.cartTotals.currency_decimal_separator ) {
-		format.decimalSeparator = cart.cartTotals.currency_decimal_separator;
-	}
-
-	if ( undefined !== cart.cartTotals.currency_minor_unit ) {
-		format.minorUnit = cart.cartTotals.currency_minor_unit;
-	}
-
-	if ( undefined !== cart.cartTotals.currency_prefix ) {
-		format.prefix = cart.cartTotals.currency_prefix;
-	}
-
-	if ( undefined !== cart.cartTotals.currency_suffix ) {
-		format.suffix = cart.cartTotals.currency_suffix;
-	}
-
-	if ( undefined !== cart.cartTotals.currency_symbol ) {
-		format.symbol = cart.cartTotals.currency_symbol;
-	}
-
-	if ( undefined !== cart.cartTotals.currency_thousand_separator ) {
-		format.thousandSeparator = cart.cartTotals.currency_thousand_separator;
-	}
+	format.code = cart.cartTotals.currency_code;
+	format.decimalSeparator = cart.cartTotals.currency_decimal_separator;
+	format.minorUnit = cart.cartTotals.currency_minor_unit;
+	format.prefix = cart.cartTotals.currency_prefix;
+	format.suffix = cart.cartTotals.currency_suffix;
+	format.symbol = cart.cartTotals.currency_symbol;
+	format.thousandSeparator = cart.cartTotals.currency_thousand_separator;
 
 	return format;
 }
