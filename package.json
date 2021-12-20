@@ -18,6 +18,9 @@
 		"lint:js": "wp-scripts lint-js",
 		"start": "wp-scripts start",
 		"test": "wp-scripts test-unit-js",
+		"test:coverage": "wp-scripts test-unit-js --coverage",
+		"test:help": "wp-scripts test-unit-js --help",
+		"test:watch": "wp-scripts test-unit-js --watchAll",
 		"packages-update": "wp-scripts packages-update"
 	},
 	"dependencies": {
@@ -27,7 +30,9 @@
 		"prettier": "npm:wp-prettier@2.0.5"
 	},
 	"devDependencies": {
-		"@wordpress/components": "^18.0.0",
+		"@testing-library/jest-dom": "5.16.1",
+		"@testing-library/react": "12.1.2",
+		"@wordpress/components": "19.1.0",
 		"@wordpress/dependency-extraction-webpack-plugin": "3.2.1",
 		"@wordpress/i18n": "4.2.4",
 		"@wordpress/prettier-config": "1.1.1",
