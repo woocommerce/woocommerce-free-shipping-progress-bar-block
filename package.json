@@ -17,6 +17,10 @@
 		"lint:css": "wp-scripts lint-style",
 		"lint:js": "wp-scripts lint-js",
 		"start": "wp-scripts start",
+		"test": "wp-scripts test-unit-js",
+		"test:coverage": "wp-scripts test-unit-js --coverage",
+		"test:help": "wp-scripts test-unit-js --help",
+		"test:watch": "wp-scripts test-unit-js --watchAll",
 		"packages-update": "wp-scripts packages-update"
 	},
 	"dependencies": {
@@ -27,6 +31,8 @@
 	},
 	"devDependencies": {
 		"@wordpress/components": "19.1.5",
+		"@testing-library/jest-dom": "5.16.1",
+		"@testing-library/react": "12.1.2",
 		"@wordpress/dependency-extraction-webpack-plugin": "3.2.1",
 		"@wordpress/i18n": "4.2.4",
 		"@wordpress/prettier-config": "1.1.1",
