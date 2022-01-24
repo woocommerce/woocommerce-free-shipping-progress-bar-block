@@ -30,12 +30,12 @@
 		"prettier": "npm:wp-prettier@2.0.5"
 	},
 	"devDependencies": {
-		"@wordpress/components": "19.1.5",
+		"@wordpress/components": "19.2.0",
 		"@testing-library/jest-dom": "5.16.1",
 		"@testing-library/react": "12.1.2",
 		"@wordpress/dependency-extraction-webpack-plugin": "3.2.1",
 		"@wordpress/i18n": "4.2.4",
 		"@wordpress/prettier-config": "1.1.1",
-		"@wordpress/scripts": "19.2.2"
+		"@wordpress/scripts": "19.2.3"
 	}
 }
