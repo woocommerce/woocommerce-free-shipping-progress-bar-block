@@ -1,7 +1,7 @@
 /**
  * Internal dependencies
  */
-import { getCurrentTotal, getMinorUnit, getRemaining } from './util';
+import { getRemaining } from './util';
 
 describe( 'The function getRemaining()', () => {
 	test.each`
