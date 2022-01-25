@@ -1,4 +1,9 @@
 /**
+ * Internal dependencies
+ */
+import metadata from '../block.json';
+
+/**
  * Get the current totals.
  *
  * @param {Object} cart The cart object.
@@ -11,7 +16,8 @@ export function getCurrentTotal( cart ) {
 
 		return total_price / Math.pow( 10, minor_unit );
 	}
-	return 15;
+
+	return metadata.attributes.currentTotal.default;
 }
 
 /**
