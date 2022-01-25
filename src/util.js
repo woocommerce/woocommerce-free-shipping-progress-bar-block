@@ -18,13 +18,10 @@ export function getCurrentTotal( cart ) {
  * Get the minor unit.
  *
  * @param {Object} cart The cart object.
- * @returns {Number} The totals of the cart object, if available, else the totals of the cart progress bar preview.
+ * @returns {Number} The totals of the cart object, if available, else 0.
  */
 export function getMinorUnit( cart ) {
-	if ( undefined !== cart ) {
-		return cart.cartTotals.currency_minor_unit;
-	}
-	return '';
+	return cart?.cartTotals?.currency_minor_unit || 0;
 }
 
 /**
