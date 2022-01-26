@@ -24,25 +24,39 @@ defined( 'ABSPATH' ) || exit;
  * through the block editor in the corresponding context.
  *
  * @see https://developer.wordpress.org/block-editor/tutorials/block-tutorial/writing-your-first-block-type/
+ * @return void
  */
 function create_block_interactive_block_block_init() {
-	register_block_type( __DIR__, array(
-		'render_callback' => 'render_block_with_attribures'
-	) );
+	register_block_type(
+		__DIR__,
+		array(
+			'render_callback' => 'render_block_with_attribures',
+		)
+	);
 }
 
-// Copied from @wordpress/dependency-extraction-webpack-plugin docs.
+/**
+ * Enqueue frontend scripts.
+ *
+ * @return void
+ */
 function enqueue_frontend_script() {
 	$script_path       = 'build/frontend.js';
 	$script_asset_path = 'build/frontend.asset.php';
 	$script_asset      = require( $script_asset_path );
-	$script_url = plugins_url( $script_path, __FILE__ );
+	$script_url        = plugins_url( $script_path, __FILE__ );
 	wp_enqueue_script( 'script', $script_url, $script_asset['dependencies'], $script_asset['version'] );
 }
 
-// Copied from WooCommerce Blocks.
-function add_attributes_to_block( $attributes = [], $content = '' ) {
-	$escaped_data_attributes = [];
+/**
+ * Add attributes to the block.
+ *
+ * @param array  $attributes The attributes to add.
+ * @param string $content The original content.
+ * @return string The updated content.
+ */
+function add_attributes_to_block( $attributes = array(), $content = '' ) {
+	$escaped_data_attributes = array();
 
 	foreach ( $attributes as $key => $value ) {
 		if ( is_bool( $value ) ) {
@@ -57,19 +71,26 @@ function add_attributes_to_block( $attributes = [], $content = '' ) {
 	return preg_replace( '/^<div /', '<div ' . implode( ' ', $escaped_data_attributes ) . ' ', trim( $content ) );
 }
 
-function render_block_with_attribures( $attributes = [], $content = '' ) {
+/**
+ * Render attributes with attributes
+ *
+ * @param array  $attributes The attributes to add.
+ * @param string $content The original content.
+ * @return string The updated content.
+ */
+function render_block_with_attribures( $attributes = array(), $content = '' ) {
 	if ( ! is_admin() ) {
 		enqueue_frontend_script();
 	}
-	return add_attributes_to_block($attributes, $content);
+	return add_attributes_to_block( $attributes, $content );
 };
-
 add_action( 'init', 'create_block_interactive_block_block_init' );
 
 /**
  * Add experimentalfilter to add data attributes to the free shipping progress bar block.
- * 
+ *
  * @see https://github.com/woocommerce/woocommerce-gutenberg-products-block/blob/trunk/docs/blocks/feature-flags-and-experimental-interfaces.md
+ * @return void
  */
 add_filter(
 	'__experimental_woocommerce_blocks_add_data_attributes_to_block',

@@ -1,0 +1,40 @@
+{
+	"name": "nielslange/free-shipping-progress-bar-block",
+	"description": "Show a free shipping progress bar.",
+	"homepage": "https://github.com/woocommerce/woocommerce-gutenberg-products-block/",
+	"type": "wordpress-plugin",
+	"keywords": [
+		"woocommerce",
+		"wordpress",
+		"free shipping progress bar"
+	],
+	"license": "GPL-2.0-or-later",
+	"require": {
+		"php": ">=5.8"
+	},
+	"require-dev": {
+		"dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
+		"overtrue/phplint": "2.3.5",
+		"phpcompatibility/phpcompatibility-wp": "^2.1",
+		"phpstan/phpstan": "^1.4",
+		"squizlabs/php_codesniffer": "^3.6",
+		"vimeo/psalm": "^4.18",
+		"wp-coding-standards/wpcs": "^2.3",
+		"woocommerce/woocommerce-sniffs": "^0.1.2"
+	},
+	"scripts": {
+		"phpcbf": "phpcbf --standard=phpcs.xml .",
+		"phpcs": "phpcs --standard=phpcs.xml .",
+		"phplint": "phplint",
+		"phpstan": "phpstan analyse src --level 9",
+		"psalm": "psalm"
+	},
+	"config": {
+		"allow-plugins": {
+			"composer/package-versions-deprecated": true,
+			"dealerdirect/phpcodesniffer-composer-installer": true,
+			"automattic/jetpack-autoloader": true,
+			"composer/installers": true
+		}
+	}
+}

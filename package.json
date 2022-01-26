@@ -12,6 +12,7 @@
 	],
 	"main": "build/index.js",
 	"scripts": {
+		"analyse": "run-s phpcs phplint phpstan psalm -lns",
 		"build": "wp-scripts build",
 		"format": "wp-scripts format",
 		"lint:css": "wp-scripts lint-style",
@@ -21,6 +22,11 @@
 		"test:coverage": "wp-scripts test-unit-js --coverage",
 		"test:help": "wp-scripts test-unit-js --help",
 		"test:watch": "wp-scripts test-unit-js --watchAll",
+		"phpcbf": "composer run phpcbf",
+		"phpcs": "composer run phpcs",
+		"phplint": "composer run phplint",
+		"phpstan": "composer run phpstan",
+		"psalm": "composer run psalm",
 		"packages-update": "wp-scripts packages-update"
 	},
 	"dependencies": {
@@ -30,12 +36,13 @@
 		"prettier": "npm:wp-prettier@2.0.5"
 	},
 	"devDependencies": {
-		"@wordpress/components": "19.2.0",
 		"@testing-library/jest-dom": "5.16.1",
 		"@testing-library/react": "12.1.2",
+		"@wordpress/components": "19.2.0",
 		"@wordpress/dependency-extraction-webpack-plugin": "3.2.1",
 		"@wordpress/i18n": "4.2.4",
 		"@wordpress/prettier-config": "1.1.1",
-		"@wordpress/scripts": "19.2.3"
+		"@wordpress/scripts": "19.2.3",
+		"npm-run-all": "4.1.5"
 	}
 }
