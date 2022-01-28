@@ -22,6 +22,10 @@ const ProgressLabel = ( {
 	const remaining = getRemaining( freeShippingFrom, currentTotal, minorUnit );
 	const currency = getCurrencyFromPriceResponse( cart );
 	const price = formatPrice( remaining, currency );
+
+	console.info( currency );
+	console.info( price );
+
 	const message =
 		remaining > 0
 			? labelInsufficientTotals.replace( '{amount}', price )

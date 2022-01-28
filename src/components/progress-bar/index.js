@@ -1,9 +1,4 @@
 /**
- * External dependencies
- */
-import { formatPrice } from '@woocommerce/price-format';
-
-/**
  * Internal dependencies
  */
 import { getCurrentTotal } from '../../util';
