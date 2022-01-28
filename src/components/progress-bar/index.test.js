@@ -7,7 +7,7 @@ import '@testing-library/jest-dom';
 /**
  * Internal dependencies
  */
-import ProgressBar from './../index';
+import ProgressBar from './index';
 
 const outer = '.wc-free-shipping-progress-bar__outer';
 const inner = '.wc-free-shipping-progress-bar__inner';
@@ -24,22 +24,34 @@ describe( 'The ProgressBar component', () => {
 	} );
 
 	it( 'shows the style for a full bar correctly', () => {
-		render( <ProgressBar freeShippingFrom="4" currentTotal="4" /> );
+		const cart = {
+			cartTotals: { total_price: 100, currency_minor_unit: 0 },
+		};
+		render( <ProgressBar freeShippingFrom="100" cart={ cart } /> );
 		expect( document.querySelector( inner ) ).toHaveStyle( 'width: 100%' );
 	} );
 
 	it( 'shows the style for a threequarter bar correctly', () => {
-		render( <ProgressBar freeShippingFrom="4" currentTotal="3" /> );
+		const cart = {
+			cartTotals: { total_price: 75, currency_minor_unit: 0 },
+		};
+		render( <ProgressBar freeShippingFrom="100" cart={ cart } /> );
 		expect( document.querySelector( inner ) ).toHaveStyle( 'width: 75%' );
 	} );
 
 	it( 'shows the style for a half bar correctly', () => {
-		render( <ProgressBar freeShippingFrom="4" currentTotal="2" /> );
+		const cart = {
+			cartTotals: { total_price: 50, currency_minor_unit: 0 },
+		};
+		render( <ProgressBar freeShippingFrom="100" cart={ cart } /> );
 		expect( document.querySelector( inner ) ).toHaveStyle( 'width: 50%' );
 	} );
 
 	it( 'shows the style for an empty bar correctly', () => {
-		render( <ProgressBar freeShippingFrom="4" currentTotal="0" /> );
+		const cart = {
+			cartTotals: { total_price: 0, currency_minor_unit: 0 },
+		};
+		render( <ProgressBar freeShippingFrom="1" cart={ cart } /> );
 		expect( document.querySelector( inner ) ).toHaveStyle( 'width: 0%' );
 	} );
 } );

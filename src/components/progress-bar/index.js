@@ -1,4 +1,10 @@
-const ProgressBar = ( { currentTotal, freeShippingFrom } ) => {
+/**
+ * Internal dependencies
+ */
+import { getCurrentTotal } from '../../util';
+
+const ProgressBar = ( { freeShippingFrom, cart } ) => {
+	const currentTotal = getCurrentTotal( cart );
 	const progress = ( currentTotal / freeShippingFrom ) * 100;
 	const divWidth = ( progress > 100 ? 100 : progress ) + '%';
 	const divStyle = { width: divWidth };

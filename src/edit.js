@@ -18,7 +18,6 @@ import ProgressBar from './components/progress-bar';
 import useViewSwitcher from './components/use-view-switcher';
 import { notice } from './constants';
 import { Icon, progressBarHalf, progressBarFull } from './icons';
-import './style.scss';
 
 const BlockSettings = ( { attributes, setAttributes } ) => {
 	const { freeShippingFrom } = attributes;
