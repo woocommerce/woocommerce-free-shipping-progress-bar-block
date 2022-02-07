@@ -3,6 +3,7 @@
  */
 import { __ } from '@wordpress/i18n';
 import {
+	__experimentalUseColorProps as useColorProps,
 	BlockControls,
 	InspectorControls,
 	PlainText,
@@ -19,6 +20,7 @@ import useViewSwitcher from './components/use-view-switcher';
 import { notice } from './constants';
 import { Icon, progressBarHalf, progressBarFull } from './icons';
 import './style.scss';
+import { getColorCode } from './util';
 
 const BlockSettings = ( { attributes, setAttributes } ) => {
 	const { freeShippingFrom } = attributes;
@@ -51,7 +53,11 @@ const BlockSettings = ( { attributes, setAttributes } ) => {
 };
 
 const Edit = ( { attributes, setAttributes, clientId } ) => {
-	const { labelInsufficientTotals, labelSufficientTotals } = attributes;
+	const {
+		labelInsufficientTotals,
+		labelSufficientTotals,
+		textColor,
+	} = attributes;
 	const { currentView, component: ViewSwitcherComponent } = useViewSwitcher(
 		clientId,
 		[
@@ -73,6 +79,10 @@ const Edit = ( { attributes, setAttributes, clientId } ) => {
 			},
 		]
 	);
+
+	const colorProps = useColorProps( attributes );
+	const messageColor = getColorCode( textColor, colorProps, 'color' );
+	const messageStyle = { color: messageColor };
 
 	return (
 		<div { ...useBlockProps() }>
@@ -102,6 +112,7 @@ const Edit = ( { attributes, setAttributes, clientId } ) => {
 						/>
 						<PlainText
 							className="wc-free-shipping-progress-bar__label"
+							style={ messageStyle }
 							value={ labelInsufficientTotals }
 							onChange={ ( value ) =>
 								setAttributes( {
@@ -135,13 +146,18 @@ const Edit = ( { attributes, setAttributes, clientId } ) => {
 								</p>
 							</Notice>
 						) }
-						<ProgressBar { ...attributes } />
+
+						<ProgressBar
+							{ ...attributes }
+							colorProps={ colorProps }
+						/>
 					</>
 				) }
 				{ currentView === 'sufficient-cart-totals' && (
 					<>
 						<PlainText
 							className="wc-free-shipping-progress-bar__label"
+							style={ messageStyle }
 							value={ labelSufficientTotals }
 							onChange={ ( value ) =>
 								setAttributes( {
@@ -151,6 +167,7 @@ const Edit = ( { attributes, setAttributes, clientId } ) => {
 						/>
 						<ProgressBar
 							{ ...attributes }
+							colorProps={ colorProps }
 							currentTotal="1"
 							freeShippingFrom="1"
 						/>
