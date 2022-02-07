@@ -1,5 +1,26 @@
 {
-  "extends": [
-    "config:base"
-  ]
+	"extends": [ "config:base" ],
+	"schedule": [ "every weekday" ],
+	"composer": {
+		"enabled": false
+	},
+	"packageRules": [
+		{
+			"packageNames": [
+				"automattic/jetpack-autoloader",
+				"composer/installers"
+			],
+			"rangeStrategy": "bump"
+		},
+		{
+			"updateTypes": [ "minor", "patch", "pin", "digest" ],
+			"automerge": true
+		},
+		{
+			"updateTypes": [ "major", "minor", "patch", "pin", "digest" ],
+			"depTypeList": [ "devDependencies" ],
+			"automerge": true
+		}
+	],
+	"rebaseWhen": "conflicted"
 }
