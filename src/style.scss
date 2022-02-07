@@ -1,19 +1,21 @@
-.wc-free-shipping-progress-bar__outer {
-	align-items: center;
+.wc-free-shipping-progress-bar__progress[value] {
+	appearance: none;
 	background: transparent;
-	border: 2px solid #ddd;
-	border-radius: 4px;
-	display: flex;
-	height: 2em;
-	justify-content: center;
-	margin: 0.5em 0 2em;
-	padding: 0.1em;
-	position: relative;
-}
-.wc-free-shipping-progress-bar__inner {
-	background: #4c566a;
+	border: 1px solid currentColor;
 	border-radius: 3px;
-	height: 100%;
-	left: 0;
-	position: absolute;
+	height: 20px;
+	margin: 0.5em 0 2em;
+	width: 100%;
+}
+
+.wc-free-shipping-progress-bar__progress[value]::-webkit-progress-bar {
+	background: transparent;
+}
+
+.wc-free-shipping-progress-bar__progress[value]::-webkit-progress-value {
+	background: currentColor;
+}
+
+.wc-free-shipping-progress-bar__progress[value]::-moz-progress-bar {
+	background: currentColor;
 }

@@ -18,8 +18,8 @@
 		"lint:css": "wp-scripts lint-style",
 		"lint:js": "wp-scripts lint-js",
 		"start": "wp-scripts start",
-		"test": "wp-scripts test-unit-js",
-		"test:coverage": "wp-scripts test-unit-js --coverage",
+		"test": "wp-scripts test-unit-js --verbose",
+		"test:coverage": "wp-scripts test-unit-js --coverage --verbose",
 		"test:help": "wp-scripts test-unit-js --help",
 		"test:watch": "wp-scripts test-unit-js --watchAll",
 		"phpcbf": "composer run phpcbf",
@@ -32,7 +32,10 @@
 	"dependencies": {
 		"@wordpress/block-editor": "^8.0.0",
 		"@wordpress/blocks": "^11.1.0",
+		"autoprefixer": "10.4.2",
+		"classnames": "^2.3.1",
 		"eslint": "^7.32.0",
+		"lodash.kebabcase": "^4.1.1",
 		"prettier": "npm:wp-prettier@2.0.5"
 	},
 	"devDependencies": {

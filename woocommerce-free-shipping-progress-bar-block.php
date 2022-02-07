@@ -24,21 +24,18 @@ defined( 'ABSPATH' ) || exit;
  * through the block editor in the corresponding context.
  *
  * @see https://developer.wordpress.org/block-editor/tutorials/block-tutorial/writing-your-first-block-type/
- * @return void
  */
 function create_block_interactive_block_block_init() {
 	register_block_type(
 		__DIR__,
 		array(
-			'render_callback' => 'render_block_with_attribures',
+			'render_callback' => 'render_block_with_attributes',
 		)
 	);
 }
 
 /**
- * Enqueue frontend scripts.
- *
- * @return void
+ * Enqueue the frontend scripts.
  */
 function enqueue_frontend_script() {
 	$script_path       = 'build/frontend.js';
@@ -49,22 +46,38 @@ function enqueue_frontend_script() {
 }
 
 /**
- * Add attributes to the block.
+ * Add attributes to block.
  *
- * @param array  $attributes The attributes to add.
- * @param string $content The original content.
- * @return string The updated content.
+ * @param array  $attributes    The array with attributes.
+ * @param string $content       The original block HTML code.
+ * @return string               The updated block HTML code.
  */
 function add_attributes_to_block( $attributes = array(), $content = '' ) {
 	$escaped_data_attributes = array();
 
+	// Add the custom background color to the attributes array.
+	if ( ! $attributes['backgroundColor'] && isset( $attributes['style'], $attributes['style']['color'], $attributes['style']['color']['background'] ) ) {
+		$attributes['backgroundColor'] = $attributes['style']['color']['background'];
+	}
+
+	// Add the custom text color to the attributes array.
+	if ( ! $attributes['textColor'] && isset( $attributes['style'], $attributes['style']['color'], $attributes['style']['color']['text'] ) ) {
+		$attributes['textColor'] = $attributes['style']['color']['text'];
+	}
+
 	foreach ( $attributes as $key => $value ) {
+		if ( 'style' === $key ) {
+			continue;
+		}
+
 		if ( is_bool( $value ) ) {
 			$value = $value ? 'true' : 'false';
 		}
+
 		if ( ! is_scalar( $value ) ) {
 			$value = wp_json_encode( $value );
 		}
+
 		$escaped_data_attributes[] = 'data-' . esc_attr( strtolower( preg_replace( '/(?<!\ )[A-Z]/', '-$0', $key ) ) ) . '="' . esc_attr( $value ) . '"';
 	}
 
@@ -72,25 +85,25 @@ function add_attributes_to_block( $attributes = array(), $content = '' ) {
 }
 
 /**
- * Render attributes with attributes
+ * Render block with attributes.
  *
- * @param array  $attributes The attributes to add.
- * @param string $content The original content.
- * @return string The updated content.
+ * @param array  $attributes    The array with attributes.
+ * @param string $content       The original block HTML code.
+ * @return string               The updated block HTML code.
  */
-function render_block_with_attribures( $attributes = array(), $content = '' ) {
+function render_block_with_attributes( $attributes = array(), $content = '' ) {
 	if ( ! is_admin() ) {
 		enqueue_frontend_script();
 	}
 	return add_attributes_to_block( $attributes, $content );
 };
+
 add_action( 'init', 'create_block_interactive_block_block_init' );
 
 /**
  * Add experimentalfilter to add data attributes to the free shipping progress bar block.
  *
  * @see https://github.com/woocommerce/woocommerce-gutenberg-products-block/blob/trunk/docs/blocks/feature-flags-and-experimental-interfaces.md
- * @return void
  */
 add_filter(
 	'__experimental_woocommerce_blocks_add_data_attributes_to_block',
