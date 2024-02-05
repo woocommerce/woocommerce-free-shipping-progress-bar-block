@@ -39,7 +39,7 @@
 		"prettier": "npm:wp-prettier@2.0.5"
 	},
 	"devDependencies": {
-		"@testing-library/jest-dom": "5.16.3",
+		"@testing-library/jest-dom": "6.4.2",
 		"@testing-library/react": "12.1.4",
 		"@wordpress/components": "19.3.0",
 		"@wordpress/i18n": "4.3.0",
