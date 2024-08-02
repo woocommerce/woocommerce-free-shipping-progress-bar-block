@@ -32,7 +32,7 @@
 	"dependencies": {
 		"@wordpress/block-editor": "^8.0.0",
 		"@wordpress/blocks": "^11.1.0",
-		"autoprefixer": "10.4.4",
+		"autoprefixer": "10.4.20",
 		"classnames": "^2.3.1",
 		"eslint": "^7.32.0",
 		"lodash.kebabcase": "^4.1.1",
